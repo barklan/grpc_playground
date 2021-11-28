@@ -48,7 +48,7 @@ func (s *server) SayHelloAgain(ctx context.Context, in *pb.HelloRequest) (*pb.He
 }
 
 func (s *server) Query(ctx context.Context, in *pb.QueryRequest) (*pb.QueryReply, error) {
-	return &pb.QueryReply{Rows: []string{"Jim", "John"}}, nil
+	return &pb.QueryReply{Rows: []string{"Jim", "John", "Carry"}}, nil
 }
 
 func main() {
