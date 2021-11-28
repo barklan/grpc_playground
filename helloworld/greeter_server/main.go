@@ -26,7 +26,7 @@ import (
 	"log"
 	"net"
 
-	pb "github.com/barklan/grpc_playground/helloworld/helloworld"
+	pb "github.com/barklan/grpc_playground/protos"
 	"google.golang.org/grpc"
 )
 
@@ -41,6 +41,14 @@ type server struct {
 func (s *server) SayHello(ctx context.Context, in *pb.HelloRequest) (*pb.HelloReply, error) {
 	log.Printf("Received: %v", in.GetName())
 	return &pb.HelloReply{Message: "Hello " + in.GetName()}, nil
+}
+
+func (s *server) SayHelloAgain(ctx context.Context, in *pb.HelloRequest) (*pb.HelloReply, error) {
+	return &pb.HelloReply{Message: "Hello again " + in.GetName()}, nil
+}
+
+func (s *server) Query(ctx context.Context, in *pb.QueryRequest) (*pb.QueryReply, error) {
+	return &pb.QueryReply{Rows: []string{"Jim", "John"}}, nil
 }
 
 func main() {

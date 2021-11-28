@@ -1,0 +1,24 @@
+[project]
+name = "grpc_playground"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Gleb Buzin", email = "qufiwefefwoyn@gmail.com"},
+]
+dependencies = [
+    "grpcio~=1.42",
+    "grpcio-tools~=1.42",
+]
+requires-python = ">=3.9"
+dynamic = ["classifiers"]
+license = {text = "MIT"}
+
+[project.urls]
+homepage = ""
+
+[build-system]
+requires = ["pdm-pep517"]
+build-backend = "pdm.pep517.api"
+
+[tool]
+[tool.pdm]

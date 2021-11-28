@@ -33,10 +33,14 @@ function up {
    echo "up"
 }
 
-function proto {
+function proto:go {
     protoc --go_out=. --go_opt=paths=source_relative \
     --go-grpc_out=. --go-grpc_opt=paths=source_relative \
-    helloworld/helloworld/helloworld.proto
+    protos/helloworld.proto
+}
+
+function proto:py {
+    python -m grpc_tools.protoc -I protos --python_out=./protos --grpc_python_out=./protos protos/helloworld.proto
 }
 
 # -----------------------------------------------------------------------------
